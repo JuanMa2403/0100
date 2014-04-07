@@ -38,6 +38,16 @@ public class BallDemo
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
         
+        //dibuja las bolas
+            for(int i=0;i<numeroDeBolas;i++)
+        {
+            diametro=5+ aleatorio.nextInt(30);
+            colorDeBola=aleatorio.nextInt(7);
+            PosicionBolaEnX=aleatorio.nextInt(600-diametro);
+            PosicionBolaEnY=diametro+aleatorio.nextInt(100);
+            bolas[i]=new BouncingBall(PosicionBolaEnX, PosicionBolaEnY, diametro,colores[colorDeBola] , ground, myCanvas);
+            bolas[i].draw();
+        }
 
 
     }
