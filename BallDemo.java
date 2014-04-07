@@ -43,7 +43,7 @@ public class BallDemo
         {
             diametro=5+ aleatorio.nextInt(30);
             colorDeBola=aleatorio.nextInt(7);
-            PosicionBolaEnX=aleatorio.nextInt(600-diametro);
+            PosicionBolaEnX=aleatorio.nextInt(300-diametro);
             PosicionBolaEnY=diametro+aleatorio.nextInt(100);
             bolas[i]=new BouncingBall(PosicionBolaEnX, PosicionBolaEnY, diametro,colores[colorDeBola] , ground, myCanvas);
             bolas[i].draw();
