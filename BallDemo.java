@@ -48,7 +48,26 @@ public class BallDemo
             bolas[i]=new BouncingBall(PosicionBolaEnX, PosicionBolaEnY, diametro,colores[colorDeBola] , ground, myCanvas);
             bolas[i].draw();
         }
+        
+        
+        // se repite hasta que una bola llega a 550 en X
+        boolean finished =  false;
+        int numDeBola=0;
+        while(!finished) {
+            if(numDeBola==numeroDeBolas) {
+                numDeBola=0;
+            }
+            bolas[numDeBola].move();
+            myCanvas.wait(10);            
+            // stop once ball has travelled a certain distance on x axis
 
+            if(bolas[numDeBola].getXPosition() >= 550) {
+                finished = true;
+
+            }        
+
+            numDeBola++;
+        }
 
     }
 }
