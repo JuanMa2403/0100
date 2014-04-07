@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.util.Random;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -23,31 +23,22 @@ public class BallDemo
     /**
      * Simulate two bouncing balls
      */
-    public void bounce()
+    public void bounce(int numeroDeBolas)
     {
+        Random aleatorio=new Random();
         int ground = 400;   // position of the ground line
-
+        BouncingBall[] bolas=new BouncingBall[numeroDeBolas];
+        Color[] colores={Color.BLUE,Color.RED,Color.GREEN,Color.GRAY,Color.MAGENTA,Color.CYAN,Color.CYAN};
+        int colorDeBola=0;
+        int PosicionBolaEnX=0;
+        int PosicionBolaEnY=0;
+        int diametro=0;
         myCanvas.setVisible(true);
 
         // draw the ground
         myCanvas.drawLine(50, ground, 550, ground);
+        
 
-        // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
 
-        // make them bounce
-        boolean finished =  false;
-        while(!finished) {
-            myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
-        }
     }
 }
