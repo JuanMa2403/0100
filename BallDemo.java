@@ -112,6 +112,8 @@ public class BallDemo
         int right=50;//origen en X
         int left=525;//posision en X del lado izquierdo
         myCanvas.setVisible(true);
+        int azar1=aleatorio.nextInt(20);
+        int azar2=aleatorio.nextInt(20);
         //dibuja el rectangulo
         drawRectanble(50 ,450,525);
         //dibuja las bolas con diametro posicion y color aleatorios
@@ -134,10 +136,10 @@ public class BallDemo
             if(numDeBola==numeroDeBolas) {
                 numDeBola=0;
             }
-            bolas[numDeBola].move();
+            bolas[numDeBola].move(azar1,azar2);
             myCanvas.wait(2);        
 
-            if(bolas[numDeBola].getXPosition() >= 525-diametro) {
+            if(bolas[numDeBola].getXPosition() >= 550) {
 
                 numeroDEColisionesIzqda++;
                 if(numeroDEColisionesIzqda==7){ finished = true;}
@@ -146,5 +148,6 @@ public class BallDemo
             numDeBola++;
         }
     }
+  
 
 }
